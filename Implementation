@@ -1,0 +1,68 @@
+#include "abon.h"
+#include <Windows.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+void abonent::tarif()
+{
+	switch (ikod)
+	{
+	case 0:
+		ftarif = itime * 0.06;
+		break;
+		case 1:
+		ftarif = itime * 0.3;
+		break;
+	case 2:
+		ftarif = itime * 0.6;
+		break;
+	case 3:
+		ftarif = itime * 5;
+		break;
+	}
+}
+void abonent::kod()
+{
+	if (number[0] != '0')
+		ikod = 0;
+	else
+	{
+		switch (number[1])
+		{
+		case '2':
+			ikod = 1;
+			break;
+		case'0':
+			ikod = 2;
+			break;
+		case'1':
+			ikod = 3;
+			break;
+		default:ikod = 99;
+        }
+	}
+}
+void abonent::enter(int w)
+{
+	char text[100];
+	CharToOemA("vvedi num tel:",text);
+	cout << text << "[" << w << "]:";
+	cin >> number;
+	CharToOemA("vvedi triv rozm:", text);
+	cout << text;
+	cin >> itime;
+
+}
+void abonent::print(int p)
+{
+	char text[100];
+	CharToOemA("grn.", text);
+	if (ikod != 99)
+	{
+		cout << p + 1 << "\t" << setw(12) << number;
+		cout << "\t" << ikod << "\t" << time;
+		cout << "\t" << ftarif << text << endl;
+	}
+	else cout << p + 1 << "\t" << "error" << endl;
+}
