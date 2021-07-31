@@ -1,0 +1,29 @@
+#include "abon.h" 
+#include <Windows.h>
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main(){
+	abonent * sabon[5];
+	for (int j=0; j<5; j++)
+	{
+		int i=j+1;
+		cout<< "Vvedite danniye ob abonente # " << i << '\n';
+		sabon[j] = new abonent;
+		sabon[j] ->enter(i);
+		sabon[j] ->kod();
+		sabon[j] -> tarif();
+	}
+	for( int i=0; i<5; i++)
+	{
+		sabon [i] -> print(i);
+	}
+	getch();
+	for(int j=0; j<5; j++)
+	{
+		delete sabon[j];
+	}
+	//system("pause");
+return 0;
+}

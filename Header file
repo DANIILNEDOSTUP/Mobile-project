@@ -1,0 +1,12 @@
+class abonent {
+public:
+	void enter (int w);
+	void kod();
+	void tarif();
+	void print (int p);
+private:
+	char number[12];
+	int ikod;
+	int itime;
+	float ftarif;
+};
